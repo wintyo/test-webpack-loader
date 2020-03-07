@@ -1,0 +1,10 @@
+extends ./templates/_layout
+
+block variables
+  -
+    var styles = requireCss('./sample.css');
+
+block content
+  div
+    p test!
+    p= styles
