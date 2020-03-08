@@ -21,3 +21,12 @@ pugでrequireする方法は存在せず、dataにrequireメソッドを渡し�
 pug-html-loaderはhtmlを返すが、pug-loaderはtemplateを返す。JS側でコンパイルするため、requireコードもそのまま残しているためモジュールの解決が可能。**ただし、JS側の実行が必要になる。**  
 fs.writeSyncで出力することも考えたが、それだとブラウザスクリプトにそのコードが残ってしまう。別タスクでの実行はそもそもwebpackを通す意味がなくなり、pug単体で実行した方がよくなるが、その場合はrequireが使えなくなる。  
 したがってpug-loaderを使ってhtmlを出力するのは不可能だと思われる。  
+
+## html-loaderについて
+html-loaderのinterpolationはrequireコードに書き換えているだけで、実行はextract-loaderで行っている。  
+
+## this.loadModule
+this.loadModuleでloader経由でモジュールを読み込むことができる。  
+css-loaderでmodulesをtrueにすればオブジェクトが手に入る。  
+しかし、非同期でモジュールを読み込むのでpugにデータを渡すことができない。
+  

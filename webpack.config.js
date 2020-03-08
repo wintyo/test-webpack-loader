@@ -22,11 +22,28 @@ module.exports = {
           // {
           //   loader: 'pug-html-loader',
           // },
+          // {
+          //   loader: 'apply-loader',
+          // },
+          // {
+          //   loader: 'pug-loader'
+          // }
+        ]
+      },
+      {
+        test: /\.html$/,
+        use: [
           {
-            loader: 'apply-loader',
+            loader: path.resolve(__dirname, 'lib/debug.js'),
           },
           {
-            loader: 'pug-loader'
+            loader: 'extract-loader',
+          },
+          {
+            loader: 'html-loader',
+            options: {
+              interpolate: true
+            }
           }
         ]
       },
@@ -36,6 +53,9 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
+            options: {
+              modules: true,
+            }
           }
         ]
       }
