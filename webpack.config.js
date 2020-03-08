@@ -14,20 +14,26 @@ module.exports = {
         test: /\.pug$/,
         use: [
           {
-            loader: path.resolve(__dirname, 'lib/loader.js'),
+            loader: path.resolve(__dirname, 'lib/debug.js'),
             options: {
               pretty: true,
             }
           },
           // {
+          //   loader: 'extract-loader',
+          // },
+          // {
+          //   loader: 'html-loader',
+          // },
+          // {
           //   loader: 'pug-html-loader',
           // },
-          // {
-          //   loader: 'apply-loader',
-          // },
-          // {
-          //   loader: 'pug-loader'
-          // }
+          {
+            loader: 'apply-loader',
+          },
+          {
+            loader: 'pug-loader'
+          }
         ]
       },
       {
