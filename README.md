@@ -16,3 +16,8 @@ pugでrequireする方法は存在せず、dataにrequireメソッドを渡し�
 データの同期が心配になるが、現状JSONファイルだと比較的簡単にrequireできるため、実現可能レベルではある。  
 
 + https://github.com/css-modules/postcss-modules
+
+## pug-loaderについて
+pug-html-loaderはhtmlを返すが、pug-loaderはtemplateを返す。JS側でコンパイルするため、requireコードもそのまま残しているためモジュールの解決が可能。**ただし、JS側の実行が必要になる。**  
+fs.writeSyncで出力することも考えたが、それだとブラウザスクリプトにそのコードが残ってしまう。別タスクでの実行はそもそもwebpackを通す意味がなくなり、pug単体で実行した方がよくなるが、その場合はrequireが使えなくなる。  
+したがってpug-loaderを使ってhtmlを出力するのは不可能だと思われる。  

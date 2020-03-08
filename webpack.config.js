@@ -18,6 +18,15 @@ module.exports = {
             options: {
               pretty: true,
             }
+          },
+          // {
+          //   loader: 'pug-html-loader',
+          // },
+          {
+            loader: 'apply-loader',
+          },
+          {
+            loader: 'pug-loader'
           }
         ]
       },
